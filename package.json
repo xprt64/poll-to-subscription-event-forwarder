@@ -1,0 +1,22 @@
+{
+  "name": "poll-to-subscription-event-forwarder",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {},
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xprt64/poll-to-subscription-event-forwarder.git"
+  },
+  "author": "Constantin Galbenu <gica.galbenu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xprt64/poll-to-subscription-event-forwarder/issues"
+  },
+  "homepage": "https://github.com/xprt64/poll-to-subscription-event-forwarder#readme",
+  "description": ""
+}
