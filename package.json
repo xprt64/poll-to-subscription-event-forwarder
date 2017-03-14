@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node index.js"
+    "start": "node src/index.js"
   },
-  "dependencies": {},
-  "main": "index.js",
+  "dependencies": {
+    "async": "^2.1.5",
+    "forever": "^0.15.3",
+    "http": "0.0.0",
+    "request": "^2.81.0"
+  },
+  "main": "src/index.js",
   "devDependencies": {},
   "repository": {
     "type": "git",
