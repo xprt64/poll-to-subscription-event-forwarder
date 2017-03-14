@@ -6,9 +6,15 @@ const http = require('http');
 const eachLimit = require('async/eachLimit');
 const request = require('request');
 const fs = require('fs');
-const fileName = __dirname + '/../data/lastProcessedCommit.json';
-
+const fileName = '/data/lastProcessedCommit.json';
 let lastProcessedCommit = {};
+const indexUrl = process.argv[2] || 'http://10.5.5.137/eventstore';
+const notifyUrl = process.argv[3] || 'http://10.5.5.137/eventstore/new/event';
+let eventsUrlTemplate;
+
+if (!fs.existsSync('/data')) {
+    fs.mkdirSync('/data', 0o777);
+}
 
 lastProcessedCommit.load = function () {
     "use strict";
@@ -51,10 +57,6 @@ lastProcessedCommit.incrementEvent = function () {
 };
 
 lastProcessedCommit.load();
-
-const indexUrl = process.argv[2] || 'http://10.5.5.137/eventstore';
-const notifyUrl = process.argv[3] || 'http://10.5.5.137/eventstore/new/event';
-let eventsUrlTemplate;
 
 discoverLink.retry = 0;
 main();
