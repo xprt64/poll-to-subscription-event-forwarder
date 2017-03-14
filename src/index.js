@@ -8,8 +8,8 @@ const request = require('request');
 const fs = require('fs');
 const fileName = '/data/lastProcessedCommit.json';
 let lastProcessedCommit = {};
-const indexUrl = process.argv[2] || 'http://10.5.5.137/eventstore';
-const notifyUrl = process.argv[3] || 'http://10.5.5.137/eventstore/new/event';
+const indexUrl = process.env.INDEX || 'http://10.5.5.137/eventstore';
+const notifyUrl = process.env.NOTIFY || 'http://10.5.5.137/eventstore/new/event';
 let eventsUrlTemplate;
 
 if (!fs.existsSync('/data')) {
