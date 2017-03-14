@@ -20,7 +20,7 @@ lastProcessedCommit.load = function () {
     "use strict";
     
     let data = {
-        sequence: 276824,
+        sequence: -1,
         index: -1,
     };
     
