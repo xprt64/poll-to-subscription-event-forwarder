@@ -20,7 +20,7 @@ lastProcessedCommit.load = function () {
     "use strict";
     
     let data = {
-        sequence: -1,
+        sequence: 276824,
         index: -1,
     };
     
@@ -77,10 +77,16 @@ function pollCommits() {
     
     const urlString = eventsUrlTemplate.replace('{after}', lastProcessedCommit.sequence).replace('{limit}', 10);
     
-    console.log(`pollCommits ${urlString}`);
+ //   console.log(`pollCommits ${urlString}`);
     
     return getJson(urlString).then((body) => {
-        return processCommits(body['stream']);
+        if (body['stream'].length > 0) {
+            return processCommits(body['stream']);
+        }
+        else {
+            throw "no new commits";
+        }
+        
     }).then(pollCommits).catch(reschedulePollingCommits);
 }
 
